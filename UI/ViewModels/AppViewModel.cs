@@ -9,5 +9,7 @@ namespace Ganymede.UI.ViewModels
         private string accessToken = "";
 
         public ObservableCollection<DeviceViewModel> Devices = new ObservableCollection<DeviceViewModel>();
+
+        public ObservableCollection<ConfigViewModel> Configs = new ObservableCollection<ConfigViewModel>();
     }
 }

@@ -11,8 +11,9 @@
     CloseButtonText="Cancel">
 
     <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <TextBox Name="UsernameInput" PlaceholderText="Username"/>
+        <TextBox Name="UsernameInput" PlaceholderText="Username" IsSpellCheckEnabled="False"/>
         <PasswordBox Name="PasswordInput" PlaceholderText="Password" IsPasswordRevealButtonEnabled="True" Margin="0,20,0,10"/>
+        <CheckBox Name="SaveCredsCheckbox" Content="Remember Me"/>
         <TextBlock Name="ErrorText" Text="" Style="{StaticResource CaptionTextBlockStyle}" Foreground="Red"/>
     </StackPanel>
 </ContentDialog>

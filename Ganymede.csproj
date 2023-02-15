@@ -19,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="UI\**"/>
-    <Compile Remove="UI\**"/>
+    <Compile Remove="UI\**" />
+    <EmbeddedResource Remove="UI\**" />
+    <None Remove="UI\**" />
   </ItemGroup>
 
   <ItemGroup>

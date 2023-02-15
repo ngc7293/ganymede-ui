@@ -36,8 +36,23 @@ namespace Ganymede.Api.Auth0
             };
 
             var data = new FormUrlEncodedContent(payload);
-            var response = await client.PostAsync(String.Format("https://{0}/oauth/token", HOST), data);
+            return await HandleResponse(await client.PostAsync(String.Format("https://{0}/oauth/token", HOST), data));
+        }
 
+        public async Task<AuthResult> RefreshToken(string token)
+        {
+            var payload = new Dictionary<string, string> {
+                { "grant_type", " refresh_token" },
+                { "client_id", CLIENT_ID },
+                { "refresh_token ", token },
+            };
+
+            var data = new FormUrlEncodedContent(payload);
+            return await HandleResponse(await client.PostAsync(String.Format("https://{0}/oauth/token", HOST), data));
+        }
+
+        private async Task<AuthResult> HandleResponse(HttpResponseMessage response)
+        {
             try {
                 var json = (await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync())).RootElement;
 

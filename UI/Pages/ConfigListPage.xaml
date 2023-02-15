@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Ganymede.UI.Pages.DeviceListPage"
+    x:Class="Ganymede.UI.Pages.ConfigListPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Ganymede.UI"
@@ -9,7 +9,7 @@
     Background="Transparent">
 
     <Page.Resources>
-        <DataTemplate x:Key="DeviceViewTemplate" x:DataType="local:ViewModels.DeviceViewModel">
+        <DataTemplate x:Key="ConfigViewTemplate" x:DataType="local:ViewModels.ConfigViewModel">
             <StackPanel 
                     CornerRadius="8"
                     Padding="12"
@@ -25,11 +25,11 @@
 
     <Grid>
         <ListView
-            x:Name="DeviceList"
-            ItemsSource="{x:Bind ViewModel.Devices}"
-            ItemTemplate="{StaticResource DeviceViewTemplate}"
+            x:Name="ConfigList"
+            ItemsSource="{x:Bind ViewModel.Configs}"
+            ItemTemplate="{StaticResource ConfigViewTemplate}"
             HorizontalAlignment="Stretch"
-            SelectionChanged="DeviceList_SelectionChanged"
+            SelectionChanged="ConfigList_SelectionChanged"
             />
     </Grid>
 </Page>

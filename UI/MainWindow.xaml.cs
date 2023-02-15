@@ -3,8 +3,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
-using Windows.Security.Credentials;
-
 namespace Ganymede.UI
 {
     public sealed partial class MainWindow : MicaWindow
@@ -18,21 +16,7 @@ namespace Ganymede.UI
             ExtendsContentIntoTitleBar = true;
             SetTitleBar(AppTitleBar);
 
-            var vault = new PasswordVault();
-
-            try
-            {
-                var creds = vault.Retrieve("ganymede", "accesstoken");
-                ViewModel.AccessToken = creds.Password;
-                System.Diagnostics.Debug.WriteLine(String.Format("Token: {0}", ViewModel.AccessToken));
-            }
-            catch (Exception)
-            {
-                if (Content is FrameworkElement fe)
-                {
-                    fe.Loaded += (ss, ee) => PromptAuth();
-                }
-            }
+            ((FrameworkElement)(Content)).Loaded += (ss, ee) => PromptAuth();
 
         }
 
@@ -45,7 +29,7 @@ namespace Ganymede.UI
             }
             else if ((string)item.Tag == "configs")
             {
-                ContentFrame.Navigate(typeof(Pages.DeviceListPage));
+                ContentFrame.Navigate(typeof(Pages.ConfigListPage));
             }
         }
 

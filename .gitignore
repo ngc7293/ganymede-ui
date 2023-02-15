@@ -1,0 +1,7 @@
+# Artifacts
+bin/
+obj/
+
+# IDE
+.vs/
+.vscode/
